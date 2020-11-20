@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY } from '../../Config';
-import {Typography} from 'antd';
+import {Typography, Row} from 'antd';
 
 const {Title} = Typography;
 
@@ -51,8 +51,22 @@ url(''), #1c1c1c`,
       {/* Body */}
 
       <div  style={{ width:'85%', margin: '1rem auto'}}>
-      <Title style={{ color: 'white' }} level={2}>
-            Title</Title>
+      <Title  level={2}>
+            Movies by Title</Title>
+
+            <hr/>
+
+            {/* Grid Card */}
+            <Row gutter={[16, 16]}>
+
+
+            </Row>
+            {/* Load More Button */}
+            <br/>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+              <button onClick> Load More</button>
+            </div>
+
       </div>
     </div>
   );
