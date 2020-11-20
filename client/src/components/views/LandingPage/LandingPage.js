@@ -6,13 +6,14 @@ const {Title} = Typography;
 
 function LandingPage() {
 
-   //const [state, setstate] = useState(initialState)
+   const [Movies, setMovies] = useState([])
 
   useEffect(() => {
     fetch(`${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
+        console.log(response)
+        setMovies(response.results)
       });
   }, []);
 
