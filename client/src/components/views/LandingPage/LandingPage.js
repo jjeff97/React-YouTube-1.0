@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { API_URL, API_KEY } from '../../Config';
+import { API_URL, API_KEY, IMAGE_URL } from '../../Config';
 import {Typography, Row} from 'antd';
+import MainImage from './Sections/MainImage';
 
 const {Title} = Typography;
 
@@ -20,6 +21,7 @@ function LandingPage() {
   return (
     <div style={{ width: '100%', margin: 0 }}>
       {/* Movie main image */}
+      <MainImage image={`${IMAGE_URL}w1280${Movies[0].backdrop_path}`} title text/>
       <div
         style={{
           background: `linear-gradient(to bottom, rgba(0,0,0,0)

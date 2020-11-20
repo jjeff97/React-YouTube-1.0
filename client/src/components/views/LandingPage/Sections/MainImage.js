@@ -1,4 +1,7 @@
 import React from 'react'
+import { Typography} from 'antd';
+
+const {Title} = Typography;
 
 function MainImage() {
     return (
@@ -15,7 +18,23 @@ url(''), #1c1c1c`,
           width: '100%',
           position: 'relative',
         }}
-      ></div>
+      >
+          <div>
+        <div
+          style={{
+            position: 'absolute',
+            maxWidth: '500px',
+            bottom: '2rem',
+            marginLeft: '2rem',
+          }}
+        >
+          <Title style={{ color: 'white' }} level={2}>
+            Title</Title>
+            <p style={{ color: 'white', fontSize: '1rem' }}> text</p>
+          
+        </div>
+      </div>
+      </div>
     )
 }
 
