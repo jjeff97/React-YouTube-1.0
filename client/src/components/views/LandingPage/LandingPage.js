@@ -1,7 +1,9 @@
-
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { FaCode } from 'react-icons/fa';
 import { API_URL, API_KEY } from '../../Config';
+import {Typography} from 'antd';
+
+const {Title} = Typography;
 
 function LandingPage() {
   useEffect(() => {
@@ -13,16 +15,38 @@ function LandingPage() {
   }, []);
 
   return (
-    <>
-      <div className="app">
-        <FaCode style={{ fontSize: '4rem' }} />
-        <br />
-        <span style={{ fontSize: '2rem' }}>Let's Start Coding!</span>
+    <div style={{ width: '100%', margin: 0 }}>
+      {/* Movie main image */}
+      <div
+        style={{
+          background: `linear-gradient(to bottom, rgba(0,0,0,0)
+39%,rgba(0,0,0,0)
+41%rgba(0,0,0,0)
+100%),
+url(''), #1c1c1c`,
+          height: '500px',
+          backgroundSize: '100%, cover',
+          width: '100%',
+          position: 'relative',
+        }}
+      ></div>
+      <div>
+        <div
+          style={{
+            position: 'absolute',
+            maxWidth: '500px',
+            bottom: '2rem',
+            marginLeft: '2rem',
+          }}
+        >
+          <Title style={{ color: 'white' }} level={2}>
+            {' '}
+            Title
+            <p style={{ color: 'white', fontSize: '1rem' }}> text</p>
+          </Title>
+        </div>
       </div>
-      <div style={{ float: 'right' }}>
-        Thanks For Using This Boiler Plate by John Ahn
-      </div>
-    </>
+    </div>
   );
 }
 
