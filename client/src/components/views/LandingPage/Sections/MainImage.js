@@ -3,7 +3,7 @@ import { Typography} from 'antd';
 
 const {Title} = Typography;
 
-function MainImage() {
+function MainImage(props) {
     return (
         <div
         style={{
@@ -11,7 +11,7 @@ function MainImage() {
 39%,rgba(0,0,0,0)
 41%rgba(0,0,0,0.65)
 100%),
-url(''), #1c1c1c`,
+url('$props.image'), #1c1c1c`,
           height: '500px',
           backgroundSize: '100%, cover',
           backgroundPosition: 'center, center',
@@ -28,9 +28,9 @@ url(''), #1c1c1c`,
             marginLeft: '2rem',
           }}
         >
-          <Title style={{ color: 'white' }} level={2}>
-            Title</Title>
-            <p style={{ color: 'white', fontSize: '1rem' }}> text</p>
+          <Title style={{ color: 'white' }} level={2}> {props.title}
+            </Title>
+            <p style={{ color: 'white', fontSize: '1rem' }}> {props.text}</p>
           
         </div>
       </div>
