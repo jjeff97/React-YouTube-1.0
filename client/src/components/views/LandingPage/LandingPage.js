@@ -67,10 +67,10 @@ url(''), #1c1c1c`,
             {/* Grid Card */}
             <Row gutter={[16, 16]}>
 {Movies && Movies.map((movie, index) => (
-  <React.Fragment>
+  <React.Fragment key={index}>
 <GridCard
-image
-movieId
+image= {movie.poster_path && `${IMAGE_URL}w500${movie.poster_path}`}
+movieId={movie.id}
 
 />
 
