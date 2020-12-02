@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY, IMAGE_URL } from '../../Config';
 import {Typography, Row} from 'antd';
 import MainImage from './Sections/MainImage';
-import { ReactReduxContext } from 'react-redux';
+import GridCard from './Sections/GridCard';
 
 const {Title} = Typography;
 
@@ -69,6 +69,9 @@ url(''), #1c1c1c`,
 {Movies && Movies.map((movie, index) => (
   <React.Fragment>
 <GridCard
+image
+movieId
+
 />
 
   </React.Fragment>
