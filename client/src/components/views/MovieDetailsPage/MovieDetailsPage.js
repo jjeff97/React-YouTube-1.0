@@ -1,35 +1,57 @@
-import React, {useEffect, useState } from 'react';
+import { Descriptions } from 'antd';
+import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY, IMAGE_URL } from '../../Config';
 import MainImage from '../LandingPage/Sections/MainImage';
 
 
 function MovieDetailsPage(props) {
+  const [Movie, setMovie] = useState([]);
 
-    const [Movie, setMovie] = useState([])
+  useEffect(() => {
+    const movieId = props.match.params.movieId;
 
-    useEffect(() => {
+    fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`)
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        setMovie(response);
+      });
+  }, []);
 
-        const movieId = props.match.params.movieId
-
-       fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`)
-        .then(response => response.json())
-        .then(response=> {
-            console.log(response)
-            setMovie(response)
-        })
-    }, [])
-
-    return (
-        <div>
-             {Movie && 
+  return (
+    <div>
+      {Movie && (
         <MainImage
-          image={`${IMAGE_URL}w1280${Movie.backdrop_path && Movie.backdrop_path}`}
+          image={`${IMAGE_URL}w1280${
+            Movie.backdrop_path && Movie.backdrop_path
+          }`}
           title={Movie.original_title}
           text={Movie.overview}
         />
-      }
+      )}
+      {/* Body */}
+
+      <div style={{ width: '85%', margin: '1rem auto' }}>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <button> Add to Favorites</button>
         </div>
-    )
+        {/* Movie Info Table */}
+<Descriptions title="Movie Info" bordered>
+        <Descriptions.Item label="Title">{Movie.original.title}</Descriptions.Item>
+        <Descriptions.Item label="release_date">{Movie.release_date}</Descriptions.Item>
+        <Descriptions.Item label="revenue">{Movie.revenue}</Descriptions.Item>
+        <Descriptions.Item label="runtime">{Movie.runtime}</Descriptions.Item>
+        <Descriptions.Item label="vote_average" span={2}>{Movie.vote_average}</Descriptions.Item>
+        <Descriptions.Item label="vote_count">{Movie.vote_count}</Descriptions.Item>
+        <Descriptions.Item label="status">{Movie.status}</Descriptions.Item>
+        <Descriptions.Item label="popularity">{Movie.popularity}</Descriptions.Item>
+
+
+</Descriptions>
+
+      </div>
+    </div>
+  );
 }
 
-export default MovieDetailsPage
+export default MovieDetailsPage;
