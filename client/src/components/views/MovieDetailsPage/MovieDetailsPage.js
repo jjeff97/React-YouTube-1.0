@@ -1,4 +1,4 @@
-import { Descriptions } from 'antd';
+import { Descriptions, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY, IMAGE_URL } from '../../Config';
 import MainImage from '../LandingPage/Sections/MainImage';
@@ -33,11 +33,11 @@ function MovieDetailsPage(props) {
 
       <div style={{ width: '85%', margin: '1rem auto' }}>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <button> Add to Favorites</button>
+          <Button> Add to Favorites</Button>
         </div>
         {/* Movie Info Table */}
 <Descriptions title="Movie Info" bordered>
-        <Descriptions.Item label="Title">{Movie.original.title}</Descriptions.Item>
+        <Descriptions.Item label="Title">{Movie.original_title}</Descriptions.Item>
         <Descriptions.Item label="release_date">{Movie.release_date}</Descriptions.Item>
         <Descriptions.Item label="revenue">{Movie.revenue}</Descriptions.Item>
         <Descriptions.Item label="runtime">{Movie.runtime}</Descriptions.Item>
@@ -48,6 +48,11 @@ function MovieDetailsPage(props) {
 
 
 </Descriptions>
+
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+
+<Button> Toggle Actor View </Button>
+</div>
 
       </div>
     </div>
