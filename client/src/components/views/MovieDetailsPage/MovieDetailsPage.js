@@ -9,6 +9,7 @@ function MovieDetailsPage(props) {
   
     const [Movie, setMovie] = useState([]);
     const [Crews, setCrews] = useState([]);
+    const [ActorToggle, setActorToggle] = useState(false);
 
   
 
@@ -24,12 +25,17 @@ function MovieDetailsPage(props) {
         fetch(`${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`)
         .then((response) => response.json())
         .then((response) => {
-            setCrews(response.crew)
+            setCrews(response.cast)
 
         })
 
-      });
-  }, []);
+      })
+  }, [])
+
+  const handleClick = () => {
+    
+    setActorToggle(!ActorToggle)
+  }
 
   return (
     <div>
@@ -64,22 +70,30 @@ function MovieDetailsPage(props) {
 
 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-<Button> Toggle Actor View </Button>
+<Button onClick={handleClick}> Toggle Actor View </Button>
 </div>
 
-{/*Grid Cards for Crews */}
+{/*Grid Cards for Cast */}
 
-<Row gutter={[16, 16]}>
+{ActorToggle &&
+    <Row gutter={[16, 16]}>
           {Crews &&
             Crews.map((crew, index) => (
               <React.Fragment key={index}>
-                <GridCard
+
+                  {crew.profile_path && 
+                  <GridCard
                   actor image={`${IMAGE_URL}w500${crew.profile_path}`}
                     
                 />
+                  }
+                
               </React.Fragment>
             ))}
         </Row>
+}
+
+
 
       </div>
     </div>
