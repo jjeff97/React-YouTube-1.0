@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { API_URL, API_KEY, IMAGE_URL } from '../../Config';
 import MainImage from '../LandingPage/Sections/MainImage';
 import GridCard from '../LandingPage/Sections/GridCard';
+import Favorite from './Sections/Favorite';
 
 
 function MovieDetailsPage(props) {
@@ -52,7 +53,7 @@ function MovieDetailsPage(props) {
 
       <div style={{ width: '85%', margin: '1rem auto' }}>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button> Add to Favorites</Button>
+          <Favorite/>
         </div>
         {/* Movie Info Table */}
 <Descriptions title="Movie Info" bordered>
